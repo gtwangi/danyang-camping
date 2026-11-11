@@ -189,9 +189,9 @@ section{padding:26px 0 6px}
 /* ── 맛집 ── */
 .food{
   background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
-  padding:14px 16px;margin-bottom:8px;display:flex;align-items:center;gap:12px;
+  padding:14px 16px;margin-bottom:8px;display:flex;align-items:flex-start;gap:12px;
 }
-.food .emo{font-size:22px}
+.food .emo{font-size:22px;flex-shrink:0;margin-top:2px}
 .food b{font-size:14.5px}
 .food span{font-size:12.5px;color:var(--muted);display:block}
 .tip{
@@ -200,6 +200,31 @@ section{padding:26px 0 6px}
   padding:14px 16px;font-size:13.5px;margin-top:14px;
 }
 .tip b{color:#A45B25}
+
+/* ── 링크 버튼 스타일 ── */
+.links-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.btn-link{
+  display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:700;
+  padding:5px 10px;border-radius:8px;text-decoration:none;transition:.15s;line-height:1.2;
+}
+.btn-link:active{transform:scale(.96)}
+.btn-link.naver{background:#EAF7EE;color:#03C75A;border:1px solid rgba(3,199,90,.25)}
+.btn-link.official{background:var(--green-light);color:var(--forest);border:1px solid rgba(44,58,47,.2)}
+.btn-link.blog{background:#FFF4E8;color:#D98E5A;border:1px solid rgba(217,142,90,.25)}
+
+/* ── 폴드7 펼친 대화면 / 태블릿 최적화 (min-width: 640px) ── */
+@media (min-width: 640px){
+  .wrap{max-width:860px;padding:0 24px}
+  header.hero{padding:54px 32px 38px;border-radius:0 0 34px 34px}
+  .hero h1{font-size:32px}
+  .wx-grid{grid-template-columns:repeat(3, 1fr);gap:14px}
+  .spots-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:14px}
+  .foods-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:12px}
+  .tl{padding-left:30px}
+  .tl h4{font-size:16px}
+  .tl p{font-size:14px}
+  nav.tabs{max-width:640px}
+}
 
 footer{
   text-align:center;font-size:12px;color:var(--muted);padding:26px 20px 10px;
@@ -406,43 +431,70 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
     <span class="no">04</span><h2>주변 명소 &amp; 관광지</h2>
   </div>
 
-  <div class="spot">
-    <div class="emo">🐟</div>
-    <div>
-      <h3>다누리아쿠아리움 <span class="pill rain">토요일 추천 · 우중 최적</span></h3>
-      <p>국내 최대 민물고기 수조를 자랑하는 실내 아쿠아리움. 비 오는 토요일 13:10 코스. <b>현장 매표 발권 시 성인 1인당 단양사랑상품권 5,000원 페이백!</b> (온라인 단독 예매 없음, 아쿠아리움+구경시장 도보 연계)</p>
+  <div class="spots-grid">
+    <div class="spot">
+      <div class="emo">🐟</div>
+      <div style="flex:1">
+        <h3>다누리아쿠아리움 <span class="pill rain">토요일 추천 · 우중 최적</span></h3>
+        <p>국내 최대 민물고기 수조를 자랑하는 실내 아쿠아리움. 비 오는 토요일 13:10 코스. <b>현장 매표 발권 시 성인 1인당 단양사랑상품권 5,000원 페이백!</b> (구경시장 도보 연계)</p>
+        <div class="links-row">
+          <a href="https://map.naver.com/p/search/단양 다누리아쿠아리움" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
+          <a href="https://www.danyang.go.kr/aquarium/" target="_blank" class="btn-link official">🏛️ 공식사이트</a>
+          <a href="https://search.naver.com/search.naver?query=단양+다누리아쿠아리움+후기" target="_blank" class="btn-link blog">📝 방문후기</a>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="spot">
-    <div class="emo">⛰️</div>
-    <div>
-      <h3>도담삼봉 &amp; 석문 <span class="pill">단양 1경 · 일요일 귀가길</span></h3>
-      <p>남한강에 솟은 신비로운 세 개의 봉우리. 북단양IC 고속도로 올리는 길목에 있어 일요일 철수 후 들르기에 동선 낭비가 전혀 없어요.</p>
+    <div class="spot">
+      <div class="emo">⛰️</div>
+      <div style="flex:1">
+        <h3>도담삼봉 &amp; 석문 <span class="pill">단양 1경 · 일요일 귀가길</span></h3>
+        <p>남한강에 솟은 신비로운 세 개의 봉우리. 북단양IC 고속도로 올리는 길목에 있어 일요일 철수 후 들르기에 동선 낭비가 전혀 없어요.</p>
+        <div class="links-row">
+          <a href="https://map.naver.com/p/search/단양 도담삼봉" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
+          <a href="https://www.danyang.go.kr/tour/1435" target="_blank" class="btn-link official">🏛️ 단양관광</a>
+          <a href="https://search.naver.com/search.naver?query=단양+도담삼봉+후기" target="_blank" class="btn-link blog">📝 방문후기</a>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="spot">
-    <div class="emo">🌤️</div>
-    <div>
-      <h3>만천하스카이워크 &amp; 단양강잔도 <span class="pill">전망 &amp; 산책</span></h3>
-      <p>남한강 절벽 80~90m 상공을 걷는 만천하스카이워크 유리 전망대와 강변 암벽을 따라 1.2km 이어지는 단양강잔도길! 아이와 평지 데크 산책하기 좋습니다.</p>
+    <div class="spot">
+      <div class="emo">🌤️</div>
+      <div style="flex:1">
+        <h3>만천하스카이워크 &amp; 단양강잔도 <span class="pill">전망 &amp; 산책</span></h3>
+        <p>남한강 절벽 80~90m 상공을 걷는 유리 전망대와 강변 암벽을 따라 1.2km 이어지는 단양강잔도길! 아이와 평지 데크 산책하기 좋습니다.</p>
+        <div class="links-row">
+          <a href="https://map.naver.com/p/search/만천하스카이워크" target="_blank" class="btn-link naver">🗺️ 스카이워크 지도</a>
+          <a href="https://map.naver.com/p/search/단양강잔도" target="_blank" class="btn-link naver">🗺️ 잔도 지도</a>
+          <a href="https://www.mancheonha.com/" target="_blank" class="btn-link official">🏛️ 공식사이트</a>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="spot">
-    <div class="emo">🏰</div>
-    <div>
-      <h3>온달관광지 &amp; 온달동굴 <span class="pill">캠핑장 인근 15분</span></h3>
-      <p>가곡면 한스빌리지에서 북쪽으로 15분(영춘면). 고구려 온달산성 드라마 오픈세트장과 여름엔 시원하고 겨울엔 온화한 천연 석회암 온달동굴 관람.</p>
+    <div class="spot">
+      <div class="emo">🏰</div>
+      <div style="flex:1">
+        <h3>온달관광지 &amp; 온달동굴 <span class="pill">캠핑장 인근 15분</span></h3>
+        <p>가곡면 한스빌리지에서 북쪽으로 15분(영춘면). 고구려 온달산성 드라마 오픈세트장과 사계절 온화한 천연 석회암 온달동굴 관람.</p>
+        <div class="links-row">
+          <a href="https://map.naver.com/p/search/온달관광지" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
+          <a href="https://www.danyang.go.kr/tour/1442" target="_blank" class="btn-link official">🏛️ 단양관광</a>
+          <a href="https://search.naver.com/search.naver?query=단양+온달관광지+후기" target="_blank" class="btn-link blog">📝 방문후기</a>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="spot">
-    <div class="emo">🕳️</div>
-    <div>
-      <h3>고수동굴 <span class="pill">천연기념물</span></h3>
-      <p>4억 년 된 신비로운 자연동굴. 실내 관광지이지만 계단과 좁은 통로가 있어 지효 눈높이에는 아쿠아리움이 더 편안합니다.</p>
+    <div class="spot">
+      <div class="emo">🕳️</div>
+      <div style="flex:1">
+        <h3>고수동굴 <span class="pill">천연기념물</span></h3>
+        <p>4억 년 된 신비로운 자연동굴. 실내 관광지이지만 계단과 좁은 통로가 있어 지효 눈높이에는 아쿠아리움이 더 편안합니다.</p>
+        <div class="links-row">
+          <a href="https://map.naver.com/p/search/고수동굴" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
+          <a href="http://www.gosucave.co.kr/" target="_blank" class="btn-link official">🏛️ 공식사이트</a>
+          <a href="https://search.naver.com/search.naver?query=단양+고수동굴+후기" target="_blank" class="btn-link blog">📝 방문후기</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -454,21 +506,86 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
     <span class="sub">완기 님의 네이버지도 즐겨찾기 연동</span>
   </div>
 
-  <div class="food"><span class="emo">🍚</span><div><b>단양흑마늘쌈밥 <span class="pill">단양읍 · 금/토 점심</span></b><span>마늘수육·제육 쌈밥 정식 — 온 가족 건강하고 든든한 한식 한상 (단양읍 별곡리 543)</span></div></div>
+  <div class="foods-grid">
+    <div class="food">
+      <span class="emo">🍚</span>
+      <div style="flex:1">
+        <b>단양흑마늘쌈밥 <span class="pill">단양읍 · 금/토 점심</span></b>
+        <span>마늘수육·제육 쌈밥 정식 — 온 가족 건강하고 든든한 한식 한상 (단양읍 별곡리 543)</span>
+        <div class="links-row">
+          <a href="https://map.naver.com/p/search/단양흑마늘쌈밥" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
+          <a href="https://search.naver.com/search.naver?query=단양흑마늘쌈밥+후기" target="_blank" class="btn-link blog">📝 블로그리뷰</a>
+        </div>
+      </div>
+    </div>
 
-  <div class="food"><span class="emo">🍲</span><div><b>가마골쉼터 <span class="pill">가곡면 · 캠핑장 7분</span></b><span>들깨감자옹심이 · 칼국수 · 감자전 — 식객 허영만 백반기행 맛집! 자극 없이 고소해 지효 먹이기 최고 (목 휴무, 금~일 정상영업)</span></div></div>
+    <div class="food">
+      <span class="emo">🍲</span>
+      <div style="flex:1">
+        <b>가마골쉼터 <span class="pill">가곡면 · 캠핑장 7분</span></b>
+        <span>들깨감자옹심이 · 칼국수 · 감자전 — 식객 허영만 백반기행 맛집! 자극 없이 고소해 지효 먹이기 최고 (목 휴무, 금~일 정상영업)</span>
+        <div class="links-row">
+          <a href="https://map.naver.com/p/search/가마골쉼터" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
+          <a href="https://search.naver.com/search.naver?query=단양+가마골쉼터+백반기행+후기" target="_blank" class="btn-link blog">📝 백반기행리뷰</a>
+        </div>
+      </div>
+    </div>
 
-  <div class="food"><span class="emo">🍗</span><div><b>단양흑마늘누룽지닭강정 <span class="pill">구경시장 · 토 포장</span></b><span>흑마늘 특제 양념에 바삭한 누룽지가 듬뿍 올라간 단양 명물 닭강정 (구경시장 607)</span></div></div>
+    <div class="food">
+      <span class="emo">🍗</span>
+      <div style="flex:1">
+        <b>단양흑마늘누룽지닭강정 <span class="pill">구경시장 · 토 포장</span></b>
+        <span>흑마늘 특제 양념에 바삭한 누룽지가 듬뿍 올라간 단양 명물 닭강정 (구경시장 607)</span>
+        <div class="links-row">
+          <a href="https://map.naver.com/p/search/단양흑마늘누룽지닭강정" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
+          <a href="https://search.naver.com/search.naver?query=단양흑마늘누룽지닭강정+후기" target="_blank" class="btn-link blog">📝 블로그리뷰</a>
+        </div>
+      </div>
+    </div>
 
-  <div class="food"><span class="emo">🥖</span><div><b>단빵제빵소 <span class="pill">구경시장 · 토 포장</span></b><span>겉바속촉 4가지 크림치즈 바게트 마늘빵 — 줄 서서 먹는 구경시장 대표 빵집 (구경시장 613)</span></div></div>
+    <div class="food">
+      <span class="emo">🥖</span>
+      <div style="flex:1">
+        <b>단빵제빵소 <span class="pill">구경시장 · 토 포장</span></b>
+        <span>겉바속촉 4가지 크림치즈 바게트 마늘빵 — 줄 서서 먹는 구경시장 대표 빵집 (구경시장 613)</span>
+        <div class="links-row">
+          <a href="https://map.naver.com/p/search/단빵제빵소" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
+          <a href="https://search.naver.com/search.naver?query=단양+단빵제빵소+마늘빵+후기" target="_blank" class="btn-link blog">📝 블로그리뷰</a>
+        </div>
+      </div>
+    </div>
 
-  <div class="food"><span class="emo">🥟</span><div><b>단양마늘만두 &amp; 순대 <span class="pill">구경시장 먹거리</span></b><span>새우마늘만두, 떡갈비만두, 달동네순대 마늘순대국밥 — 시장 별미</span></div></div>
+    <div class="food">
+      <span class="emo">🥟</span>
+      <div style="flex:1">
+        <b>단양구경시장 먹거리 <span class="pill">시장 별미 투어</span></b>
+        <span>새우마늘만두, 떡갈비만두, 달동네순대 마늘순대국밥 — 토요일 15:30 시장 투어 (도전리 615)</span>
+        <div class="links-row">
+          <a href="https://map.naver.com/p/search/단양구경시장" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
+          <a href="https://search.naver.com/search.naver?query=단양구경시장+먹거리+맛집+후기" target="_blank" class="btn-link blog">📝 시장먹거리리뷰</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="food">
+      <span class="emo">⛺</span>
+      <div style="flex:1">
+        <b>한스빌리지 캠핑장 <span class="pill">숙소 · 가곡면</span></b>
+        <span>완기 님 가족 2박 3일 캠핑 베이스캠프 (단양군 가곡면 대대리 147)</span>
+        <div class="links-row">
+          <a href="https://map.naver.com/p/search/한스빌리지캠핑장" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
+          <a href="https://cafe.naver.com/hansvillage" target="_blank" class="btn-link official">🏛️ 공식카페</a>
+          <a href="https://search.naver.com/search.naver?query=단양+한스빌리지캠핑장+후기" target="_blank" class="btn-link blog">📝 캠핑후기</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="tip">💡 <b>꿀팁:</b> 아쿠아리움에서 받은 <b>단양사랑상품권(1인당 5천원, 총 1만원)</b>은 구경시장 닭강정, 마늘빵, 식당 등에서 현금처럼 바로 사용하실 수 있어요!</div>
 
   <div style="margin-top:14px;text-align:center">
     <a href="https://naver.me/x4lf1GgH" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#03C75A;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 20px;border-radius:12px;box-shadow:var(--shadow)">
-      <span style="font-size:16px">🗺️</span> 완기 님의 단양 네이버 지도 즐겨찾기 열기
+      <span style="font-size:16px">🗺️</span> 완기 님의 단양 네이버 지도 즐겨찾기 전체 폴더 열기
     </a>
   </div>
 </section>

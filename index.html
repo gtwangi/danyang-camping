@@ -212,6 +212,25 @@ section{padding:26px 0 6px}
 .btn-link.official{background:var(--green-light);color:var(--forest);border:1px solid rgba(44,58,47,.2)}
 .btn-link.blog{background:#FFF4E8;color:#D98E5A;border:1px solid rgba(217,142,90,.25)}
 
+/* 타임라인 내 맛집/명소 탭 바로가기 칩 링크 */
+.chip-link{
+  display:inline-flex;align-items:center;gap:3px;font-size:11.5px;font-weight:700;
+  background:var(--card);color:var(--forest);border:1.5px solid var(--green-mid);
+  border-radius:999px;padding:3px 10px;margin-top:6px;margin-right:6px;text-decoration:none;
+  box-shadow:0 1px 3px rgba(0,0,0,.04);transition:.15s;
+}
+.chip-link:active{transform:scale(.96);background:var(--green-light)}
+
+/* 앵커 타겟 이동 시 시각적 하이라이트 애니메이션 */
+.spot:target, .food:target{
+  border:2px solid var(--accent) !important;
+  animation:highlightPulse 2s ease-out;
+}
+@keyframes highlightPulse{
+  0%{background:#FFF4E8}
+  100%{background:var(--card)}
+}
+
 /* ── 폴드7 펼친 대화면 / 태블릿 최적화 (min-width: 640px) ── */
 @media (min-width: 640px){
   .wrap{max-width:860px;padding:0 24px}
@@ -323,19 +342,24 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <div class="time">11:45 ~ 12:45</div>
       <h4>단양 도착 &amp; 든든한 첫날 점심 🍚</h4>
       <p><b>단양흑마늘쌈밥</b> (단양읍 시내, 푸짐한 마늘수육/제육 쌈밥 정식) 또는 캠핑장 가는 길목의 <b>가마골쉼터</b> (가곡면, 아이와 먹기 좋은 들깨감자옹심이 &amp; 감자전).</p>
-      <span class="chip">단양흑마늘쌈밥</span><span class="chip">가마골쉼터</span>
+      <div>
+        <a href="#food-ssambap" class="chip-link">🍚 단양흑마늘쌈밥 보기 ➔</a>
+        <a href="#food-gamagol" class="chip-link">🍲 가마골쉼터(옹심이) 보기 ➔</a>
+      </div>
     </div>
     <div class="item sunny">
       <div class="time">13:30</div>
       <h4>한스빌리지 입실 &amp; 여유로운 피칭 ⛺</h4>
       <p>마른 피칭의 기회 — 텐트 설치 및 플라이 펙다운. 바람이 1~6km/h로 거의 무풍이라 텐트 피칭하기 최적의 조건.</p>
       <span class="chip">강수확률 0%</span><span class="chip">무풍 1~6km/h</span>
+      <a href="#food-hans" class="chip-link">⛺ 캠핑장 정보 ➔</a>
     </div>
     <div class="item">
       <div class="time">15:30 (선택)</div>
       <h4>온달관광지 &amp; 온달동굴 산책 🏰</h4>
       <p>캠핑장에서 차로 15분 거리(영춘면). 고구려 온달산성과 드라마 세트장, 신비로운 천연동굴 가볍게 둘러보기.</p>
       <span class="chip">캠핑장 인근 15분</span><span class="chip">지효 산책</span>
+      <a href="#spot-ondal" class="chip-link">🏰 온달관광지·동굴 보기 ➔</a>
     </div>
     <div class="item">
       <div class="time">저녁</div>
@@ -361,7 +385,10 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <div class="time">12:00 ~ 13:00</div>
       <h4>단양읍 점심 식사 🍲</h4>
       <p>단양읍 시내로 이동해 점심 식사 (단양흑마늘쌈밥 정식 또는 구경시장 따끈한 마늘순대국밥).</p>
-      <span class="chip">단양흑마늘쌈밥</span><span class="chip">달동네순대</span>
+      <div>
+        <a href="#food-ssambap" class="chip-link">🍚 단양흑마늘쌈밥 ➔</a>
+        <a href="#food-market" class="chip-link">🍲 구경시장 먹거리 ➔</a>
+      </div>
     </div>
     <div class="item rainy">
       <div class="time">13:30 ~ 15:15</div>
@@ -369,12 +396,17 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <p>국내 최대 민물고기 아쿠아리움, 실내라 우중 최적! 대형 터널 수조와 테마 전시 관람 후 <b>15:00 메인수조 대형 철갑상어 식사시간(피딩쇼) 관람!</b></p>
       <span class="chip">현장 발권 · 성인 2인 상품권 1만원 페이백</span>
       <span class="chip">🦈 15:00 메인수조(B2) 물고기 식사시간 (10분)</span>
+      <a href="#spot-aquarium" class="chip-link">🐟 아쿠아리움 상세·피딩쇼 ➔</a>
     </div>
     <div class="item rainy">
       <div class="time">15:30</div>
       <h4>단양 구경시장 투어 🧄</h4>
       <p>아쿠아리움 바로 맞은편 도보 이동. 페이백 받은 상품권 1만원 사용!</p>
-      <span class="chip">단빵제빵소 (마늘빵)</span><span class="chip">단양흑마늘누룽지닭강정</span><span class="chip">상품권 1만원</span>
+      <div>
+        <a href="#food-danppang" class="chip-link">🥖 단빵제빵소 ➔</a>
+        <a href="#food-chicken" class="chip-link">🍗 누룽지닭강정 ➔</a>
+        <a href="#food" class="chip-link">🧄 시장 맛집 전체 ➔</a>
+      </div>
     </div>
     <div class="item rainy">
       <div class="time">저녁</div>
@@ -395,7 +427,8 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <div class="time">오전~오후</div>
       <h4>텐트 완전 건조 &amp; 점심 🌤️</h4>
       <p>텐트 펼쳐 말리기 (오후 14~16시 16℃ + 대체로 맑음). 점심은 가곡면 로컬 맛집 <b>가마골쉼터</b>에서 감자옹심이/감자전 추천!</p>
-      <span class="chip">가마골쉼터 (차로 7분)</span><span class="chip">14~16시 갬</span>
+      <span class="chip">14~16시 갬</span>
+      <a href="#food-gamagol" class="chip-link">🍲 가마골쉼터(옹심이) ➔</a>
     </div>
     <div class="item sunny">
       <div class="time">16:00</div>
@@ -406,7 +439,10 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <div class="time">귀가길 (선택)</div>
       <h4>도담삼봉 or 만천하스카이워크 &amp; 단양강잔도 ⛰️</h4>
       <p><b>코스 1: 도담삼봉 &amp; 석문</b> — 북단양IC 진입 길목이라 동선 최고.<br><b>코스 2: 만천하스카이워크 &amp; 단양강잔도</b> — 유리 전망대와 절벽 잔도길 산책.</p>
-      <span class="chip">도담삼봉</span><span class="chip">만천하스카이워크</span><span class="chip">단양강잔도</span>
+      <div>
+        <a href="#spot-dodam" class="chip-link">⛰️ 도담삼봉 보기 ➔</a>
+        <a href="#spot-skywalk" class="chip-link">🌤️ 만천하스카이워크·잔도 ➔</a>
+      </div>
     </div>
   </div>
 </section>
@@ -432,7 +468,7 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
   </div>
 
   <div class="spots-grid">
-    <div class="spot">
+    <div class="spot" id="spot-aquarium">
       <div class="emo">🐟</div>
       <div style="flex:1">
         <h3>다누리아쿠아리움 <span class="pill rain">토요일 추천 · 우중 최적</span></h3>
@@ -445,7 +481,7 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       </div>
     </div>
 
-    <div class="spot">
+    <div class="spot" id="spot-dodam">
       <div class="emo">⛰️</div>
       <div style="flex:1">
         <h3>도담삼봉 &amp; 석문 <span class="pill">단양 1경 · 일요일 귀가길</span></h3>
@@ -458,7 +494,7 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       </div>
     </div>
 
-    <div class="spot">
+    <div class="spot" id="spot-skywalk">
       <div class="emo">🌤️</div>
       <div style="flex:1">
         <h3>만천하스카이워크 &amp; 단양강잔도 <span class="pill">전망 &amp; 산책</span></h3>
@@ -471,7 +507,7 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       </div>
     </div>
 
-    <div class="spot">
+    <div class="spot" id="spot-ondal">
       <div class="emo">🏰</div>
       <div style="flex:1">
         <h3>온달관광지 &amp; 온달동굴 <span class="pill">캠핑장 인근 15분</span></h3>
@@ -484,7 +520,7 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       </div>
     </div>
 
-    <div class="spot">
+    <div class="spot" id="spot-gosu">
       <div class="emo">🕳️</div>
       <div style="flex:1">
         <h3>고수동굴 <span class="pill">천연기념물</span></h3>
@@ -507,7 +543,7 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
   </div>
 
   <div class="foods-grid">
-    <div class="food">
+    <div class="food" id="food-ssambap">
       <span class="emo">🍚</span>
       <div style="flex:1">
         <b>단양흑마늘쌈밥 <span class="pill">단양읍 · 금/토 점심</span></b>
@@ -519,7 +555,7 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       </div>
     </div>
 
-    <div class="food">
+    <div class="food" id="food-gamagol">
       <span class="emo">🍲</span>
       <div style="flex:1">
         <b>가마골쉼터 <span class="pill">가곡면 · 캠핑장 7분</span></b>
@@ -531,7 +567,7 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       </div>
     </div>
 
-    <div class="food">
+    <div class="food" id="food-chicken">
       <span class="emo">🍗</span>
       <div style="flex:1">
         <b>단양흑마늘누룽지닭강정 <span class="pill">구경시장 · 토 포장</span></b>
@@ -543,7 +579,7 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       </div>
     </div>
 
-    <div class="food">
+    <div class="food" id="food-danppang">
       <span class="emo">🥖</span>
       <div style="flex:1">
         <b>단빵제빵소 <span class="pill">구경시장 · 토 포장</span></b>
@@ -555,7 +591,7 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       </div>
     </div>
 
-    <div class="food">
+    <div class="food" id="food-market">
       <span class="emo">🥟</span>
       <div style="flex:1">
         <b>단양구경시장 먹거리 <span class="pill">시장 별미 투어</span></b>
@@ -567,7 +603,7 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       </div>
     </div>
 
-    <div class="food">
+    <div class="food" id="food-hans">
       <span class="emo">⛺</span>
       <div style="flex:1">
         <b>한스빌리지 캠핑장 <span class="pill">숙소 · 가곡면</span></b>

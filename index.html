@@ -231,6 +231,60 @@ section{padding:26px 0 6px}
   100%{background:var(--card)}
 }
 
+/* ── 다크모드 (야간 텐트 모드) ── */
+body.dark-mode{
+  --forest:#18221A;
+  --forest-deep:#0F1611;
+  --forest-soft:#223126;
+  --green-mid:#445C46;
+  --green-light:#2A382D;
+  --sand:#121613;
+  --sand-deep:#1F2621;
+  --charcoal:#E1E4DC;
+  --ink:#E8EBE3;
+  --muted:#9CA294;
+  --accent:#E5A373;
+  --accent-soft:#38271C;
+  --card:#1D2520;
+  --shadow:0 2px 10px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+}
+body.dark-mode nav.tabs{
+  background:rgba(23,31,25,.92);
+  border-top:1px solid rgba(255,255,255,.08);
+}
+body.dark-mode nav.tabs a{
+  color:#7D8776;
+}
+body.dark-mode nav.tabs a.on{
+  color:#E5A373;
+  background:rgba(229,163,115,.15);
+}
+
+.theme-btn{
+  position:absolute;top:0;right:0;z-index:20;
+  background:rgba(246,243,234,.16);border:1px solid rgba(246,243,234,.3);
+  color:#F6F3EA;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:700;
+  display:inline-flex;align-items:center;gap:4px;cursor:pointer;transition:.15s;
+}
+.theme-btn:active{transform:scale(.95)}
+
+/* 지효 맞춤 편의 뱃지 */
+.baby-badges{display:flex;gap:5px;flex-wrap:wrap;margin:6px 0 8px}
+.baby-badge{
+  display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;
+  background:#EEF5F0;color:#2C5E3B;border:1px solid rgba(44,94,59,.2);
+  border-radius:6px;padding:2px 8px;line-height:1.4;
+}
+body.dark-mode .baby-badge{
+  background:#203527;color:#9BD4AA;border-color:rgba(155,212,170,.25);
+}
+.btn-link.tel{
+  background:#FFF3EB;color:#D96B27;border:1px solid rgba(217,107,39,.25);
+}
+body.dark-mode .btn-link.tel{
+  background:#382316;color:#F59E68;border-color:rgba(245,158,104,.25);
+}
+
 /* ── 폴드7 펼친 대화면 / 태블릿 최적화 (min-width: 640px) ── */
 @media (min-width: 640px){
   .wrap{max-width:860px;padding:0 24px}
@@ -268,7 +322,8 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
 <body>
 
 <header class="hero">
-  <div class="wrap" style="padding:0">
+  <div class="wrap" style="padding:0;position:relative">
+    <button id="themeToggle" class="theme-btn" aria-label="야간 텐트 모드 토글">🌙 야간 텐트 모드</button>
     <span class="badge">2026. 11. 13 (금) — 11. 15 (일) · 2박 3일</span>
     <h1>단양 한스빌리지<br>가족 캠핑 가이드
       <small>충북 단양군 가곡면 · 한스빌리지 캠핑장 · 퇴실 일요일 16:00</small>
@@ -472,8 +527,13 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <div class="emo">🐟</div>
       <div style="flex:1">
         <h3>다누리아쿠아리움 <span class="pill rain">토요일 추천 · 우중 최적</span></h3>
+        <div class="baby-badges">
+          <span class="baby-badge">👶 유모차 편안 (대여·EV)</span>
+          <span class="baby-badge">🍼 수유실·기저귀교환대 완비</span>
+        </div>
         <p>국내 최대 민물고기 수조를 자랑하는 실내 아쿠아리움. 비 오는 토요일 우중 최적 코스. <b>매주 토요일 15:00 지하 2층 메인수조(높이 8m 대형수조) 대형 철갑상어 물고기 식사시간 피딩쇼 진행!</b> (약 10분간) 현장 매표 발권 시 성인 1인당 단양사랑상품권 5,000원 페이백(총 1만원) 혜택.</p>
         <div class="links-row">
+          <a href="tel:043-420-2971" class="btn-link tel">📞 안내문의 (043-420-2971)</a>
           <a href="https://map.naver.com/p/search/단양 다누리아쿠아리움" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
           <a href="https://www.danyang.go.kr/aquarium/" target="_blank" class="btn-link official">🏛️ 공식사이트</a>
           <a href="https://search.naver.com/search.naver?query=단양+다누리아쿠아리움+후기" target="_blank" class="btn-link blog">📝 방문후기</a>
@@ -485,6 +545,9 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <div class="emo">⛰️</div>
       <div style="flex:1">
         <h3>도담삼봉 &amp; 석문 <span class="pill">단양 1경 · 일요일 귀가길</span></h3>
+        <div class="baby-badges">
+          <span class="baby-badge">👶 광장 평지 유모차 가능 (석문 오르막 계단은 유모차 비추)</span>
+        </div>
         <p>남한강에 솟은 신비로운 세 개의 봉우리. 북단양IC 고속도로 올리는 길목에 있어 일요일 철수 후 들르기에 동선 낭비가 전혀 없어요.</p>
         <div class="links-row">
           <a href="https://map.naver.com/p/search/단양 도담삼봉" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
@@ -498,6 +561,9 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <div class="emo">🌤️</div>
       <div style="flex:1">
         <h3>만천하스카이워크 &amp; 단양강잔도 <span class="pill">전망 &amp; 산책</span></h3>
+        <div class="baby-badges">
+          <span class="baby-badge">👶 전망대 나선형 슬로프 &amp; 잔도 평지데크 유모차 통행 가능</span>
+        </div>
         <p>남한강 절벽 80~90m 상공을 걷는 유리 전망대와 강변 암벽을 따라 1.2km 이어지는 단양강잔도길! 아이와 평지 데크 산책하기 좋습니다.</p>
         <div class="links-row">
           <a href="https://map.naver.com/p/search/만천하스카이워크" target="_blank" class="btn-link naver">🗺️ 스카이워크 지도</a>
@@ -511,6 +577,9 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <div class="emo">🏰</div>
       <div style="flex:1">
         <h3>온달관광지 &amp; 온달동굴 <span class="pill">캠핑장 인근 15분</span></h3>
+        <div class="baby-badges">
+          <span class="baby-badge">👶 세트장 유모차 가능 (동굴 내부는 좁아 진입 불가)</span>
+        </div>
         <p>가곡면 한스빌리지에서 북쪽으로 15분(영춘면). 고구려 온달산성 드라마 오픈세트장과 사계절 온화한 천연 석회암 온달동굴 관람.</p>
         <div class="links-row">
           <a href="https://map.naver.com/p/search/온달관광지" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
@@ -524,6 +593,9 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <div class="emo">🕳️</div>
       <div style="flex:1">
         <h3>고수동굴 <span class="pill">천연기념물</span></h3>
+        <div class="baby-badges">
+          <span class="baby-badge" style="background:#FFF0F0;color:#C93B2B;border-color:rgba(201,59,43,.2)">⚠️ 계단·좁은 바위 통로 (유모차 불가)</span>
+        </div>
         <p>4억 년 된 신비로운 자연동굴. 실내 관광지이지만 계단과 좁은 통로가 있어 지효 눈높이에는 아쿠아리움이 더 편안합니다.</p>
         <div class="links-row">
           <a href="https://map.naver.com/p/search/고수동굴" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
@@ -547,8 +619,12 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <span class="emo">🍚</span>
       <div style="flex:1">
         <b>단양흑마늘쌈밥 <span class="pill">단양읍 · 금/토 점심</span></b>
+        <div class="baby-badges">
+          <span class="baby-badge">👶 온가족 추천 (부드러운 마늘수육 정식)</span>
+        </div>
         <span>마늘수육·제육 쌈밥 정식 — 온 가족 건강하고 든든한 한식 한상 (단양읍 별곡리 543)</span>
         <div class="links-row">
+          <a href="tel:0507-1447-0627" class="btn-link tel">📞 전화문의 (0507-1447-0627)</a>
           <a href="https://map.naver.com/p/search/단양흑마늘쌈밥" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
           <a href="https://search.naver.com/search.naver?query=단양흑마늘쌈밥+후기" target="_blank" class="btn-link blog">📝 블로그리뷰</a>
         </div>
@@ -559,8 +635,12 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <span class="emo">🍲</span>
       <div style="flex:1">
         <b>가마골쉼터 <span class="pill">가곡면 · 캠핑장 7분</span></b>
+        <div class="baby-badges">
+          <span class="baby-badge">👶 자극 없는 유아 식사 (들깨감자옹심이·감자전)</span>
+        </div>
         <span>들깨감자옹심이 · 칼국수 · 감자전 — 식객 허영만 백반기행 맛집! 자극 없이 고소해 지효 먹이기 최고 (목 휴무, 금~일 정상영업)</span>
         <div class="links-row">
+          <a href="tel:043-423-5240" class="btn-link tel">📞 전화문의 (043-423-5240)</a>
           <a href="https://map.naver.com/p/search/가마골쉼터" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
           <a href="https://search.naver.com/search.naver?query=단양+가마골쉼터+백반기행+후기" target="_blank" class="btn-link blog">📝 백반기행리뷰</a>
         </div>
@@ -573,6 +653,7 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
         <b>단양흑마늘누룽지닭강정 <span class="pill">구경시장 · 토 포장</span></b>
         <span>흑마늘 특제 양념에 바삭한 누룽지가 듬뿍 올라간 단양 명물 닭강정 (구경시장 607)</span>
         <div class="links-row">
+          <a href="tel:043-422-3345" class="btn-link tel">📞 포장예약 (043-422-3345)</a>
           <a href="https://map.naver.com/p/search/단양흑마늘누룽지닭강정" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
           <a href="https://search.naver.com/search.naver?query=단양흑마늘누룽지닭강정+후기" target="_blank" class="btn-link blog">📝 블로그리뷰</a>
         </div>
@@ -609,6 +690,7 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
         <b>한스빌리지 캠핑장 <span class="pill">숙소 · 가곡면</span></b>
         <span>완기 님 가족 2박 3일 캠핑 베이스캠프 (단양군 가곡면 대대리 147)</span>
         <div class="links-row">
+          <a href="tel:010-9493-5288" class="btn-link tel">📞 관리실 (010-9493-5288)</a>
           <a href="https://map.naver.com/p/search/한스빌리지캠핑장" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
           <a href="https://cafe.naver.com/hansvillage" target="_blank" class="btn-link official">🏛️ 공식카페</a>
           <a href="https://search.naver.com/search.naver?query=단양+한스빌리지캠핑장+후기" target="_blank" class="btn-link blog">📝 캠핑후기</a>
@@ -739,6 +821,21 @@ addEventListener("scroll", ()=>{
   }
   links.forEach(a=>a.classList.toggle("on", a.getAttribute("href") === "#"+cur));
 },{passive:true});
+
+/* ── 야간 텐트 모드 (다크 모드) ── */
+const themeToggle = document.getElementById("themeToggle");
+if (localStorage.getItem("danyang_dark") === "true") {
+  document.body.classList.add("dark-mode");
+  if (themeToggle) themeToggle.innerHTML = "☀️ 주간 모드";
+}
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+    localStorage.setItem("danyang_dark", isDark ? "true" : "false");
+    themeToggle.innerHTML = isDark ? "☀️ 주간 모드" : "🌙 야간 텐트 모드";
+  });
+}
 </script>
 </body>
 </html>

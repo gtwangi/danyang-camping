@@ -285,6 +285,18 @@ body.dark-mode .btn-link.tel{
   background:#382316;color:#F59E68;border-color:rgba(245,158,104,.25);
 }
 
+/* 운영시간 및 휴무일 안내 */
+.hours-info{
+  display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+  font-size:11.5px;color:var(--muted);margin:4px 0 6px;line-height:1.4;
+}
+.hours-info strong, .hours-info b{color:var(--forest);font-weight:700}
+.hours-info .closed{color:#C93B2B;font-weight:700}
+.hours-info .warn{color:#D96B27;font-weight:700}
+body.dark-mode .hours-info strong, body.dark-mode .hours-info b{color:#E2E5D8}
+body.dark-mode .hours-info .closed{color:#E57373}
+body.dark-mode .hours-info .warn{color:#FFB74D}
+
 /* ── 폴드7 펼친 대화면 / 태블릿 최적화 (min-width: 640px) ── */
 @media (min-width: 640px){
   .wrap{max-width:860px;padding:0 24px}
@@ -496,7 +508,7 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
     <div class="item sunny">
       <div class="time">귀가길 (선택)</div>
       <h4>카페산 뷰 힐링 or 도담삼봉 or 만천하스카이워크 ⛰️</h4>
-      <p><b>코스 1: 카페산 (CAFE SANN)</b> — 맑게 갠 파란 가을 하늘 아래 해발 600m 활공장에서 커피와 디저트 즐기며 캠핑 마무리.<br><b>코스 2: 도담삼봉 &amp; 석문</b> — 북단양IC 진입 길목이라 이동 동선 최적.<br><b>코스 3: 만천하스카이워크 &amp; 단양강잔도</b> — 유리 전망대와 절벽 데크 산책.</p>
+      <p><b>코스 1: 카페산 (CAFE SANN)</b> — 맑게 갠 파란 가을 하늘 아래 해발 600m 활공장에서 커피와 디저트 즐기며 캠핑 마무리 (연중무휴).<br><b>코스 2: 도담삼봉 &amp; 석문</b> — 북단양IC 진입 길목이라 이동 동선 최적 (상시 개방).<br><b>코스 3: 만천하스카이워크 &amp; 단양강잔도</b> — 유리 전망대와 절벽 데크 산책. <span style="color:#C45A1A;font-weight:700">⚠️ 만천하 현장발권 마감 16:00이므로 14:30 조기 철수 후 15:30 전 도착 필수!</span></p>
       <div>
         <a href="#food-cafesann" class="chip-link">☕ 카페산 보기 ➔</a>
         <a href="#spot-dodam" class="chip-link">⛰️ 도담삼봉 보기 ➔</a>
@@ -531,6 +543,10 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <div class="emo">🐟</div>
       <div style="flex:1">
         <h3>다누리아쿠아리움 <span class="pill rain">토요일 추천 · 우중 최적</span></h3>
+        <div class="hours-info">
+          <span>⏰ <b>09:00 ~ 18:00</b> (매표 마감 17:00)</span>
+          <span class="closed">매주 월요일 정기휴관</span>
+        </div>
         <div class="baby-badges">
           <span class="baby-badge">👶 유모차 편안 (대여·EV)</span>
           <span class="baby-badge">🍼 수유실·기저귀교환대 완비</span>
@@ -549,6 +565,10 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <div class="emo">⛰️</div>
       <div style="flex:1">
         <h3>도담삼봉 &amp; 석문 <span class="pill">단양 1경 · 일요일 귀가길</span></h3>
+        <div class="hours-info">
+          <span>⏰ <b>공원·주차장 상시 개방</b> (유람선·체험 09:00~18:00)</span>
+          <span>연중무휴</span>
+        </div>
         <div class="baby-badges">
           <span class="baby-badge">👶 광장 평지 유모차 가능 (석문 오르막 계단은 유모차 비추)</span>
         </div>
@@ -565,8 +585,13 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <div class="emo">🌤️</div>
       <div style="flex:1">
         <h3>만천하스카이워크 &amp; 단양강잔도 <span class="pill">전망 &amp; 산책</span></h3>
+        <div class="hours-info">
+          <span>⏰ <b>09:00 ~ 17:00</b> (<span class="warn">현장발권 16:00 마감!</span>)</span>
+          <span class="closed">매주 화요일 정기휴장</span>
+        </div>
         <div class="baby-badges">
           <span class="baby-badge">👶 전망대 나선형 슬로프 &amp; 잔도 평지데크 유모차 통행 가능</span>
+          <span class="baby-badge" style="background:#FFF3EB;color:#D96B27;border-color:rgba(217,107,39,.25)">⚠️ 일요일 16:00 발권 마감 주의 (15:30 전 도착 필수)</span>
         </div>
         <p>남한강 절벽 80~90m 상공을 걷는 유리 전망대와 강변 암벽을 따라 1.2km 이어지는 단양강잔도길! 아이와 평지 데크 산책하기 좋습니다.</p>
         <div class="links-row">
@@ -581,6 +606,10 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <div class="emo">🏰</div>
       <div style="flex:1">
         <h3>온달관광지 &amp; 온달동굴 <span class="pill">캠핑장 인근 15분</span></h3>
+        <div class="hours-info">
+          <span>⏰ <b>09:00 ~ 18:00</b> (매표 마감 17:00)</span>
+          <span>연중무휴</span>
+        </div>
         <div class="baby-badges">
           <span class="baby-badge">👶 세트장 유모차 가능 (동굴 내부는 좁아 진입 불가)</span>
         </div>
@@ -597,6 +626,10 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <div class="emo">🕳️</div>
       <div style="flex:1">
         <h3>고수동굴 <span class="pill">천연기념물</span></h3>
+        <div class="hours-info">
+          <span>⏰ <b>09:00 ~ 17:30</b> (입장 마감 16:30)</span>
+          <span>연중무휴</span>
+        </div>
         <div class="baby-badges">
           <span class="baby-badge" style="background:#FFF0F0;color:#C93B2B;border-color:rgba(201,59,43,.2)">⚠️ 계단·좁은 바위 통로 (유모차 불가)</span>
         </div>
@@ -623,6 +656,10 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <span class="emo">🍚</span>
       <div style="flex:1">
         <b>단양흑마늘쌈밥 <span class="pill">단양읍 · 금/토 점심</span></b>
+        <div class="hours-info">
+          <span>⏰ <b>11:00 ~ 20:00</b> (브레이크타임 15:00~16:30, L.O 19:15)</span>
+          <span class="closed">매주 목요일 정기휴무</span>
+        </div>
         <div class="baby-badges">
           <span class="baby-badge">👶 온가족 추천 (부드러운 마늘수육 정식)</span>
         </div>
@@ -639,6 +676,10 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <span class="emo">🍲</span>
       <div style="flex:1">
         <b>가마골쉼터 <span class="pill">가곡면 · 캠핑장 7분</span></b>
+        <div class="hours-info">
+          <span>⏰ <b>11:30 ~ 19:00</b> (L.O 18:00, 주문 즉시 옹심이 조리)</span>
+          <span class="closed">매주 목요일 정기휴무</span>
+        </div>
         <div class="baby-badges">
           <span class="baby-badge">👶 자극 없는 유아 식사 (들깨감자옹심이·감자전)</span>
         </div>
@@ -655,6 +696,10 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <span class="emo">☕</span>
       <div style="flex:1">
         <b>카페산 (CAFE SANN) <span class="pill">가곡면 · 해발 600m 뷰</span></b>
+        <div class="hours-info">
+          <span>⏰ <b>평일 09:30~19:00</b> (L.O 18:30) / <b>주말 09:30~19:30</b> (L.O 19:00)</span>
+          <span>연중무휴</span>
+        </div>
         <div class="baby-badges">
           <span class="baby-badge">⛰️ 해발 600m 패러글라이딩 활공장 파노라마 뷰</span>
           <span class="baby-badge">🥐 대형 베이커리 &amp; 로스터리 (블루리본 선정)</span>
@@ -674,6 +719,13 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <span class="emo">🍗</span>
       <div style="flex:1">
         <b>단양흑마늘누룽지닭강정 <span class="pill">구경시장 · 토 포장</span></b>
+        <div class="hours-info">
+          <span>⏰ <b>10:00 ~ 20:00</b> (L.O 19:30, 재료 소진 시 조기마감)</span>
+          <span>연중무휴</span>
+        </div>
+        <div class="baby-badges">
+          <span class="baby-badge" style="background:#FFF3EB;color:#D96B27;border-color:rgba(217,107,39,.25)">⚠️ 토요일 대기 1~2시간 필수 (오전 10시 전화예약 권장)</span>
+        </div>
         <span>흑마늘 특제 양념에 바삭한 누룽지가 듬뿍 올라간 단양 명물 닭강정 (구경시장 607)</span>
         <div class="links-row">
           <a href="tel:043-422-3345" class="btn-link tel">📞 포장예약 (043-422-3345)</a>
@@ -687,6 +739,10 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <span class="emo">🥖</span>
       <div style="flex:1">
         <b>단빵제빵소 <span class="pill">구경시장 · 토 포장</span></b>
+        <div class="hours-info">
+          <span>⏰ <b>10:30 ~ 21:00</b> (L.O 19:30, 빵 소진 시 마감)</span>
+          <span>연중무휴</span>
+        </div>
         <span>겉바속촉 4가지 크림치즈 바게트 마늘빵 — 줄 서서 먹는 구경시장 대표 빵집 (구경시장 613)</span>
         <div class="links-row">
           <a href="https://map.naver.com/p/search/단빵제빵소" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
@@ -699,6 +755,10 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <span class="emo">🥟</span>
       <div style="flex:1">
         <b>단양구경시장 먹거리 <span class="pill">시장 별미 투어</span></b>
+        <div class="hours-info">
+          <span>⏰ <b>09:00 ~ 20:00</b> (점포별 상이)</span>
+          <span>상설시장 연중무휴</span>
+        </div>
         <span>새우마늘만두, 떡갈비만두, 달동네순대 마늘순대국밥 — 토요일 15:30 시장 투어 (도전리 615)</span>
         <div class="links-row">
           <a href="https://map.naver.com/p/search/단양구경시장" target="_blank" class="btn-link naver">🗺️ 네이버지도</a>
@@ -711,6 +771,10 @@ nav.tabs a.on{color:var(--forest);background:var(--green-light)}
       <span class="emo">⛺</span>
       <div style="flex:1">
         <b>한스빌리지 캠핑장 <span class="pill">숙소 · 가곡면</span></b>
+        <div class="hours-info">
+          <span>⏰ <b>입실 13:00~14:00</b> / <b>퇴실 16:00</b> (레이트 체크아웃)</span>
+          <span>매너타임 22:00</span>
+        </div>
         <span>완기 님 가족 2박 3일 캠핑 베이스캠프 (단양군 가곡면 대대리 147)</span>
         <div class="links-row">
           <a href="tel:010-9493-5288" class="btn-link tel">📞 관리실 (010-9493-5288)</a>
